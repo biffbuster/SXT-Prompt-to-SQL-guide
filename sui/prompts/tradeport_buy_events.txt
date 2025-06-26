@@ -1,0 +1,4 @@
+Get hourly SUI volume over the last 24 hours from the SUI.BALANCE_CHANGES table. 
+Only include rows where coin_type is '0x2::sui::SUI' and the transaction is from the package_id '0x475e98e9c436ec118909f3b9e241d86bcbbc2cf9fba05e99a934823fefb375b7' in SUI.MOVE_CALLS. Join on transaction_block_digest and divide the total amount by 1e27. 
+Group by hour.
+
