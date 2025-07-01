@@ -1,0 +1,1 @@
+Get daily SUI staking activity over the last 7 days. Filter for stake requests in sui.staking_request_event where the package_id is 0x0000000000000000000000000000000000000000000000000000000000000003 Count distinct transaction_block_digest as txns, distinct senders as stakers, and divide the amount by 1e27. Group by day and label the action as stake. Order by day descending.
