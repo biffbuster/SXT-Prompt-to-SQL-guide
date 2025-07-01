@@ -1,0 +1,1 @@
+Count me transaction_block_digests and senders from the sui.events tales with the following packageid 0x2cdcc3b1306a49fcd5b8ccded57116ad86ab37a93ba9d91fa1ce06a8d22a21e9 where the type is 0x2cdcc3b1306a49fcd5b8ccded57116ad86ab37a93ba9d91fa1ce06a8d22a21e9::campaign::LoginEvent . group by day and order by date desc. Get the last 7 days only
