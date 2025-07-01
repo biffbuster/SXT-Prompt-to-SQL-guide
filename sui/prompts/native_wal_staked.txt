@@ -1,0 +1,1 @@
+Get daily token transfers within the last 7 dasy where function = 'stake_with_pool' and pacakge_id = '0xfdc88f7d7cf30afab2f82e8380d11ee8f70efb90e863d1de8616fae1bb09ea77' in sui.move_calls. Join with sui.balance_change and coin_type = '0x356a26eb9e012a68958082340d4c4116e7f55615cf27affcff209cf0ae544f59::wal::WAL' and amount/1e9 with a -. Group by day.
