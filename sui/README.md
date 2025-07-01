@@ -36,7 +36,11 @@ Space and Time's sui.events table offers a much more structured and readable for
 
 # Prompt Example
 
-**Find me daily distinct transaction_block_digests and senders from the following type_ within sui.events:'0x70285592c97965e811e0c6f98dccc3a9c2b4ad854b3594faab9597ada267b860::trade::SwapEvent' filter by last 30 days, group by date and order by date desc**
+The prompt below is provided in plain text for easy copying.
+
+```
+Find me daily distinct transaction_block_digests and senders from the following type_ within sui.events:'0x70285592c97965e811e0c6f98dccc3a9c2b4ad854b3594faab9597ada267b860::trade::SwapEvent' filter by last 30 days, group by date and order by date desc
+```
 
 
 The prompt above requests for 30 day transactions and senders within Sui DEX Momentum Finance's CLMM module type_ within the Sui blockchain. When typing your prompt, make sure to include the exact tables and columns needed. Space and Time's No-Code SQL tool (AKA Houston) has full knowledge of all tables within the SxT platform. 
@@ -46,6 +50,26 @@ The prompt above requests for 30 day transactions and senders within Sui DEX Mom
 
 
 ![prompt_to_sql](./images/prompt_to_sql.png)
+### SQL result
+
+```sql
+SELECT
+  CAST(e.time_stamp AS DATE) AS event_date,
+  COUNT(DISTINCT e.transaction_block_digest) AS distinct_transaction_block_count,
+  COUNT(DISTINCT e.sender) AS distinct_senderscount
+FROM
+  SUI.EVENTS e
+WHERE
+  e.type = '0x70285592c97965e811e0c6f98dccc3a9c2b4ad854b3594faab9597ada267b860::trade::SwapEvent'
+  AND e.time_stamp >= date_sub (CAST('2025-05-29' AS DATE), 30)
+GROUP BY
+  event_date
+ORDER BY
+  event_date DESC
+LIMIT
+  200;
+```
+
 
 
 The query for the prompt above generated 30d transactions and senders on momentum finance, finalized in < 8s (Whoa).
